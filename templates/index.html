@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keerthi Krishna Kadali | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">Keerthi Krishna</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero container text-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-10" data-aos="fade-up">
+        <h1 class="headline">Hi, I'm <span class="text-glow">Keerthi Krishna Kadali</span></h1>
+        <p class="typing mt-3"><span id="type-target"></span></p>
+        <a href="#projects" class="btn btn-glow mt-4">View Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5 section-dark">
+    <div class="container" data-aos="fade-right">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am <strong>Keerthi Krishna Kadali</strong>, currently pursuing a degree in <strong>Electronics and Communication Engineering</strong> with a strong interest in software development. My technical skills include <strong>HTML, CSS, JavaScript, Basic C, and Basic Python</strong>, and I enjoy building web-based solutions that combine both creativity and problem-solving.
+      </p>
+      <p>
+        I have worked on a project titled <strong>Smart Agriculture Information System</strong>, developed using HTML, CSS, JavaScript, and Python (Flask). This web platform provides farmers with crop details, irrigation methods, fertilizers, pesticides, and damage control suggestions. It also integrates multi-language voice/text search and an AI voice assistant, making agricultural knowledge more accessible.
+      </p>
+      <p>
+        My career goal is to become a <strong>software developer</strong>, contributing to innovative projects that improve everyday life through technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-5 section-light">
+    <div class="container" data-aos="zoom-in">
+      <h2 class="section-title">Skills</h2>
+      <div class="row text-center">
+        <div class="col-md-2 skill-card">HTML</div>
+        <div class="col-md-2 skill-card">CSS</div>
+        <div class="col-md-2 skill-card">JavaScript</div>
+        <div class="col-md-2 skill-card">Basic C</div>
+        <div class="col-md-2 skill-card">Basic Python</div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Projects -->
+  <section id="projects" class="py-5 section-dark text-black">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Projects</h2>
+      <div class="card glass-card">
+        <div class="card-body">
+          <h5 class="card-title">Smart Agriculture Information System</h5>
+          <p class="card-text">
+            A web platform built with HTML, CSS, JavaScript, and Python (Flask). It provides crop details, irrigation methods, fertilizers, pesticides, and damage control suggestions. The system also includes multi-language voice/text search and an AI voice assistant to support farmers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 section-light text-black">
+    <div class="container" data-aos="fade-left">
+      <h2 class="section-title">Contact Me</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action="/contact" method="POST" class="glass-card p-4">
+  <div class="mb-3">
+    <label for="name" class="form-label">Your Name</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Your Email</label>
+    <input type="email" class="form-control" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label for="message" class="form-label">Message</label>
+    <textarea class="form-control" name="message" rows="4" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-glow">Send Message</button>
+</form>
+
+    </div>
+  </section>
+
+  <footer class="text-center py-3 section-dark">
+    <p>&copy; Keerthi Krishna Kadali. </p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
